@@ -43,7 +43,7 @@ async def weather(ctx, *, city):
         temp_celsius = int(temp_kelvin - 273.15)
         todays_date = today.strftime("%d-%m-%Y")
         weather = json["weather"][0]["description"]
-        await ctx.send(f"City: {city}\nCountry: {country} ({standard_country})\nDate and Time: {todays_date}\nTemperature: {str(temp_celsius)}\nWeather: {weather.title()}")
+        await ctx.send(f"City: {city}\nCountry: {country} ({standard_country})\nDate: {todays_date}\nTemperature: {str(temp_celsius)}°C\nWeather: {weather.title()}")
     else:
         await ctx.send("We couldn't verify which city you wanted. Please make sure you spelled it correctly and try again.")
 
@@ -74,6 +74,13 @@ async def wiki_error(ctx, error):
         ctx.send(f"{wiki_title} may refer to: {search_wiki}. Please specify which one.")
 
 # ADD: If name cannot be found then say that it cannot be found.
+
+
+@client.command()
+async def wikirandom(ctx):
+    random_article = wikipedia.random(pages=1).replace(" ", "_")
+    await ctx.send(f"**Random article:**\n{wikipedia.summary(random_article)}\n**Learn more at:** https://en.wikipedia.org/wiki/{random_article}")
+
 
 # Bot Token
 client.run("ODI5ODA0MDkxOTcwMDI3NTgz.YG9dSA.mEfgOs9aMiau-wzzK215cxUocN0")
