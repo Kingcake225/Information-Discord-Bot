@@ -83,4 +83,4 @@ async def wikirandom(ctx):
 
 
 # Bot Token
-client.run("ODI5ODA0MDkxOTcwMDI3NTgz.YG9dSA.mEfgOs9aMiau-wzzK215cxUocN0")
+client.run("") # Enter your Discord Bot Token Here.
